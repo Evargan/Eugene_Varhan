@@ -18,16 +18,19 @@
         {
             string number = n.ToString();
             int res = 0;
-            while (number.Length > 1)
+            for (int i = 0; i < number.Length; i++)
             {
-                res = 0;
-                for (int i = 0; i < number.Length; i ++)
-                {
-                    res += int.Parse(number[i].ToString());
-                }
-                number = res.ToString();
+                res += int.Parse(number[i].ToString());
             }
-            return res;
+            string num = res.ToString();
+            if(num.Length > 1)
+            {
+                return digital_root(res);
+            }
+            else
+            {
+                return res;
+            }
         }
     }
 }
